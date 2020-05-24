@@ -30,7 +30,11 @@ public interface StoryRepository extends CrudRepository<Story, Long> {
 	@Query(value = "SELECT * FROM Story s ORDER BY posted desc LIMIT 4", nativeQuery = true)
 	List <Story> findAllLimitedTo4();
 	
-	@Query(value = "SELECT COUNT(s) FROM Story s WHERE LOWER(category) = ?1", nativeQuery = true)
-	String countCategories(@Param("category") String category);
+//	@Query(value = "SELECT COUNT(s) FROM Story s WHERE LOWER(category) = ?1", nativeQuery = true)
+//	String countCategories(@Param("category") String category);
+	
+	String countByCategoryIgnoreCase(String category);
 	
 }
+
+//long countByNameEndingWith(String endString);

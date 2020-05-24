@@ -14,26 +14,25 @@ import blog.repo.UserRepository;
 
 @Service
 public class StoryService {
-	
+
 	private StoryRepository storyRepo;
 	private UserRepository userRepo;
-	
+
 	@Autowired
 	public void setStoryRepo(StoryRepository storyRepo) {
 		this.storyRepo = storyRepo;
 	}
-	
+
 	@Autowired
 	public void setUserRepo(UserRepository userRepo) {
 		this.userRepo = userRepo;
 	}
-	
-	
+
 	public List<Story> getStories() {
 		return storyRepo.findAll();
 	}
-	
-	public Story getStory(){
+
+	public Story getStory() {
 		return storyRepo.findFirstByOrderByPostedDesc();
 	}
 
@@ -44,7 +43,7 @@ public class StoryService {
 	public List<Story> getStoriesByCategoryName(String category) {
 		return storyRepo.findAllByCategoryIgnoreCaseOrderByPostedDesc(category);
 	}
-	
+
 	public List<Story> getFirstByCategoryName(String category) {
 		return storyRepo.findFirstByCategoryIgnoreCaseOrderByPostedDesc(category);
 	}
@@ -52,28 +51,30 @@ public class StoryService {
 	public List<Story> getAllByLimited4() {
 		return storyRepo.findAllLimitedTo4();
 	}
+
+//	public String getCountCategories(String category) {
+//		return storyRepo.countCategories(category);
+//	}
 	
-	public String getCountCategories(String category) {
-		System.out.println("CATEGORY= " + category);
-		System.out.println("CATEGORY= " + storyRepo.countCategories(category));
-		return storyRepo.countCategories(category);
+	public String countByCategoryIgnoreCase(String category) {
+		return storyRepo.countByCategoryIgnoreCase(category);
 	}
-	
-	
+
 	public void save(Story story) {
 		Date date = new Date();
-		story.setPosted(date); //dátumot hozzáadjuk
-	
+		story.setPosted(date); // dátumot hozzáadjuk
+
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentPrincipalName = authentication.getName();
-		
+
 		System.out.println("szöveg: " + currentPrincipalName);
-		story.setUser(userRepo.findByFullName(currentPrincipalName)); 
-	
+		story.setUser(userRepo.findByFullName(currentPrincipalName));
+
 		storyRepo.save(story);
-		//SQL-ben ezt kellett ehhez futtatni: CREATE SEQUENCE hibernate_sequence START 1;
+		// SQL-ben ezt kellett ehhez futtatni: CREATE SEQUENCE hibernate_sequence START
+		// 1;
 	}
-	
+
 	public void delete(Story story) {
 		storyRepo.delete(story);
 	}

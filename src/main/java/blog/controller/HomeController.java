@@ -18,14 +18,24 @@ public class HomeController {
 
 	private StoryService storyService;
 
+//	private void extracted(Model model) {
+//		model.addAttribute("limit4", storyService.getAllByLimited4());
+//		model.addAttribute("countJava", storyService.getCountCategories("java"));
+//		model.addAttribute("countR", storyService.getCountCategories("r"));
+//		model.addAttribute("countSql", storyService.getCountCategories("sql"));
+//		model.addAttribute("countGis", storyService.getCountCategories("gis"));
+//		model.addAttribute("countTech", storyService.getCountCategories("tech"));
+//		model.addAttribute("countData", storyService.getCountCategories("data"));
+//	}
+	
 	private void extracted(Model model) {
 		model.addAttribute("limit4", storyService.getAllByLimited4());
-		model.addAttribute("countJava", storyService.getCountCategories("java"));
-		model.addAttribute("countR", storyService.getCountCategories("r"));
-		model.addAttribute("countSql", storyService.getCountCategories("sql"));
-		model.addAttribute("countGis", storyService.getCountCategories("gis"));
-		model.addAttribute("countTech", storyService.getCountCategories("tech"));
-		model.addAttribute("countData", storyService.getCountCategories("data"));
+		model.addAttribute("countJava", storyService.countByCategoryIgnoreCase("java"));
+		model.addAttribute("countR", storyService.countByCategoryIgnoreCase("r"));
+		model.addAttribute("countSql", storyService.countByCategoryIgnoreCase("sql"));
+		model.addAttribute("countGis", storyService.countByCategoryIgnoreCase("gis"));
+		model.addAttribute("countTech", storyService.countByCategoryIgnoreCase("tech"));
+		model.addAttribute("countData", storyService.countByCategoryIgnoreCase("data"));
 	}
 
 	@Autowired
