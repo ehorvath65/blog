@@ -54,6 +54,8 @@ public class StoryService {
 	}
 	
 	public String getCountCategories(String category) {
+		System.out.println("CATEGORY= " + category);
+		System.out.println("CATEGORY= " + storyRepo.countCategories(category));
 		return storyRepo.countCategories(category);
 	}
 	
