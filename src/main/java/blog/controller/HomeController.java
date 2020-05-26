@@ -27,7 +27,7 @@ public class HomeController {
 		this.storyService = storyService;
 	}
 
-	private HashSet<String> categories = new HashSet<>(Arrays.asList("jáva", "r", "sql", "gis"));
+	private HashSet<String> categories = new HashSet<>(Arrays.asList("java", "r", "sql", "gis"));
 
 	private void extracted(Model model) {
 		model.addAttribute("limit4", storyService.getAllByLimited4());
