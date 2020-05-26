@@ -41,7 +41,7 @@ public class HomeController {
 		extracted(model);
 		return "index";
 	}
-	
+
 	@RequestMapping("/createposts")
 	public String createposts(Model model) {
 		model.addAttribute("story", new Story());
@@ -55,7 +55,7 @@ public class HomeController {
 		storyService.save(story);
 		return "created";
 	}
-	
+
 	@RequestMapping("/{control}")
 	public String searchForCategory(@PathVariable(value = "control") String control, Model model) throws Exception {
 		extracted(model);
@@ -63,7 +63,7 @@ public class HomeController {
 			throw new Exception("Nincs ilyen oldal!");
 		if (categories.contains(control)) {
 			model.addAttribute(control, storyService.getStoriesByCategoryName(control));
-			model.addAttribute(control + "All", storyService.getStoriesByCategoryName(control));		
+			model.addAttribute(control + "All", storyService.getStoriesByCategoryName(control));
 			return (control);
 		} else {
 			model.addAttribute("story", storyService.getSpecificStory(control));

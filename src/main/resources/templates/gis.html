@@ -2,7 +2,7 @@
 <html lang="en"	layout:decorator="layouts/main">
 <head>
 	<meta charset="utf-8"></meta>
-	<title th:replace="layouts/main :: title">title</title>
+<title th:replace="layouts/main :: title">title</title>
 </head>
 <body>
 
@@ -42,7 +42,7 @@
 									<div class="post-body">
 										<div class="post-meta">
 											<a class="post-category cat-3" th:text="${story.category}" th:href="${story.category}">Category</a>
-											<span class="post-date" th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}">March 27, 2018</span>
+											<span class="post-date" th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}">2020 május 26</span>
 										</div>
 										<h3 class="post-title">
 									<a th:text="${story.title}" th:href="@{${story.title}}">Ez itt a cím</a></h3>

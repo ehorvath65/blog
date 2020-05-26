@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang="en"	layout:decorator="layouts/main">
+<html lang="en" layout:decorator="layouts/main">
 <head>
-	<meta charset="utf-8"></meta>
-	<title th:replace="layouts/main :: title">title</title>
+<meta charset="utf-8"></meta>
+<title th:replace="layouts/main :: title">title</title>
 </head>
 <body>
 
-<div layout:fragment="loginContent">
-	
+	<div layout:fragment="loginContent">
+
 		<div id="post-header" class="page-header">
-				<div class="background-img" style="background-image: url('./img/post-page.jpg');"></div>
-				<div class="container">
-					<div class="row">
-						<div class="col-md-10">
-							<h1>R</h1>
-							</div>
-							
-						</div>
+			<div class="background-img"
+				style="background-image: url('./img/post-page.jpg');"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10">
+						<h1>R</h1>
 					</div>
+
 				</div>
-		
-			<!-- /Page Header -->
-		
+			</div>
+		</div>
+
+		<!-- /Page Header -->
+
 		<!-- /Header -->
-		
+
 		<!-- section -->
 		<div class="section">
 			<!-- container -->
@@ -33,38 +34,42 @@
 					<div class="col-md-8">
 						<div class="row">
 							<!-- post -->
-	
-					<!-- post -->
+
+							<!-- post -->
 							<div class="col-md-12">
-							<article th:each="story : ${rAll}">
-								<div class="post post-row">
-									<a class="post-img" th:href="@{${story.title}}"><img th:src="${story.logo}" alt=""/></a>
-									<div class="post-body">
-										<div class="post-meta">
-											<a class="post-category cat-2" th:text="${story.category}" th:href="${story.category}">Category</a>
-											<span class="post-date" th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}">March 27, 2018</span>
+								<article th:each="story : ${rAll}">
+									<div class="post post-row">
+										<a class="post-img" th:href="@{${story.title}}"><img
+											th:src="${story.logo}" alt="" /></a>
+										<div class="post-body">
+											<div class="post-meta">
+												<a class="post-category cat-2" th:text="${story.category}"
+													th:href="${story.category}">Category</a> <span
+													class="post-date"
+													th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}">2020
+													május 26</span>
+											</div>
+											<h3 class="post-title">
+												<a th:text="${story.title}" th:href="@{${story.title}}">Ez
+													itt a cím</a>
+											</h3>
+											<p th:text="${story.title_long}">Alcim</p>
 										</div>
-										<h3 class="post-title">
-									<a th:text="${story.title}" th:href="@{${story.title}}">Ez itt a cím</a></h3>
-										<p th:text="${story.title_long}">Alcim</p>									</div>
-								</div>
+									</div>
 								</article>
 							</div>
 							<!-- /post -->
-						
+
+						</div>
 					</div>
-				</div>
-				
-				
-				<div class="col-md-4">
-				
+
+
+					<div class="col-md-4">
+
 						<!-- post widget -->
-						<div class="aside-widget">
-						
-							
-								</div>
+						<div class="aside-widget"></div>
 						<!-- /post widget -->
-						
+
 						<!-- catagories -->
 						<div class="aside-widget">
 							<div class="section-title">
@@ -72,17 +77,21 @@
 							</div>
 							<div class="category-widget">
 								<ul>
-									<li><a href="/java" class="cat-1">JAVA<span th:text="${countJava}">0</span></a></li>
-									<li><a href="/r" class="cat-2">R<span th:text="${countR}">0</span></a></li>
-									<li><a href="/sql" class="cat-4">SQL<span th:text="${countSql}">0</span></a></li>
-									<li><a href="/gis" class="cat-3">GIS<span th:text="${countGis}">0</span></a></li>
+									<li><a href="/java" class="cat-1">JAVA<span
+											th:text="${countJava}">0</span></a></li>
+									<li><a href="/r" class="cat-2">R<span
+											th:text="${countR}">0</span></a></li>
+									<li><a href="/sql" class="cat-4">SQL<span
+											th:text="${countSql}">0</span></a></li>
+									<li><a href="/gis" class="cat-3">GIS<span
+											th:text="${countGis}">0</span></a></li>
 									<!-- <li><a href="/tech" class="cat-5">Tech<span th:text="${countTech}">0</span></a></li> -->
 									<!-- <li><a href="/data" class="cat-5">Data<span th:text="${countData}">0</span></a></li> -->
 								</ul>
 							</div>
 						</div>
 						<!-- /catagories -->
-						
+
 						<!-- tags -->
 						<div class="aside-widget">
 							<div class="tags-widget">
@@ -102,7 +111,7 @@
 							</div>
 						</div>
 						<!-- /tags -->
-						
+
 						<!-- archive -->
 						<!-- <div class="aside-widget">
 							<div class="section-title">
@@ -123,9 +132,9 @@
 			<!-- /container -->
 		</div>
 		<!-- /section -->
-				
-</div>		
-		
+
+	</div>
+
 
 </body>
 </html>

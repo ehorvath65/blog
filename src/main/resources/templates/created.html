@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en"	layout:decorator="layouts/main">
+<html lang="en" layout:decorator="layouts/main">
 <head>
-	<meta charset="utf-8"></meta>
-	<title>AdatVilág</title>
+<meta charset="utf-8"></meta>
+<title th:replace="layouts/main :: title">title</title>
 </head>
 <body>
 
 	<div layout:fragment="loginContent">
-	
-	
-	<!-- section -->
+
+
+		<!-- section -->
 		<div class="section">
 			<!-- container -->
 			<div class="container">
@@ -17,14 +17,19 @@
 				<div class="row">
 					<!-- Post content -->
 					<div class="col-md-8">
-		
-			<h2>Sikeres feltöltés!</h2>
-			<h2><a href="/createposts">Új post felvitele</a></h2>
 
-</div></div></div></div>
-</div>
+						<h2>Sikeres feltöltés!</h2>
+						<h2>
+							<a href="/createposts">Új post felvitele</a>
+						</h2>
 
-		
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 </body>
 </html>
 
