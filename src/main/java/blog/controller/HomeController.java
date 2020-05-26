@@ -1,5 +1,6 @@
 package blog.controller;
 
+import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Locale;
@@ -19,18 +20,20 @@ import blog.service.StoryService;
 public class HomeController {
 
 	private StoryService storyService;
+	private String categoryNoAccents;
 
 	@Autowired
 	public void setStoryService(StoryService storyService) {
 		this.storyService = storyService;
 	}
 
-	private HashSet<String> categories = new HashSet<>(Arrays.asList("java", "r", "sql", "gis"));
+	private HashSet<String> categories = new HashSet<>(Arrays.asList("jáva", "r", "sql", "gis"));
 
 	private void extracted(Model model) {
 		model.addAttribute("limit4", storyService.getAllByLimited4());
 		for (String category : categories) {
-			model.addAttribute("count" + category.substring(0, 1).toUpperCase() + category.substring(1),
+			categoryNoAccents = Normalizer.normalize(category, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
+			model.addAttribute("count" + categoryNoAccents.substring(0, 1).toUpperCase() + categoryNoAccents.substring(1),
 					storyService.countByCategoryIgnoreCase(category));
 		}
 	}
