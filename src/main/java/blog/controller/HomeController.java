@@ -19,21 +19,20 @@ import blog.service.StoryService;
 public class HomeController {
 
 	private StoryService storyService;
-	private HashSet<String> categories = new HashSet<>(Arrays.asList("java", "r", "sql", "gis"));
-
-	private void extracted(Model model) {
-		model.addAttribute("limit4", storyService.getAllByLimited4());
-		model.addAttribute("countJava", storyService.countByCategoryIgnoreCase("java"));
-		model.addAttribute("countR", storyService.countByCategoryIgnoreCase("r"));
-		model.addAttribute("countSql", storyService.countByCategoryIgnoreCase("sql"));
-		model.addAttribute("countGis", storyService.countByCategoryIgnoreCase("gis"));
-		model.addAttribute("countTech", storyService.countByCategoryIgnoreCase("tech"));
-		model.addAttribute("countData", storyService.countByCategoryIgnoreCase("data"));
-	}
 
 	@Autowired
 	public void setStoryService(StoryService storyService) {
 		this.storyService = storyService;
+	}
+
+	private HashSet<String> categories = new HashSet<>(Arrays.asList("java", "r", "sql", "gis"));
+
+	private void extracted(Model model) {
+		model.addAttribute("limit4", storyService.getAllByLimited4());
+		for (String category : categories) {
+			model.addAttribute("count" + category.substring(0, 1).toUpperCase() + category.substring(1),
+					storyService.countByCategoryIgnoreCase(category));
+		}
 	}
 
 	@RequestMapping("/")
@@ -59,8 +58,6 @@ public class HomeController {
 	@RequestMapping("/{control}")
 	public String searchForCategory(@PathVariable(value = "control") String control, Model model) throws Exception {
 		extracted(model);
-		if (control == null)
-			throw new Exception("Nincs ilyen oldal!");
 		if (categories.contains(control)) {
 			model.addAttribute(control, storyService.getStoriesByCategoryName(control));
 			model.addAttribute(control + "All", storyService.getStoriesByCategoryName(control));
