@@ -1,5 +1,6 @@
 package blog.entity;
 
+import java.text.Normalizer;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -18,16 +19,16 @@ public class Story {
 	private Long id;
 	private String title;
 	private String title_long;
-	
+
 	@Column(columnDefinition = "TEXT")
 	private String content;
 
 	private Date posted;
-	
+
 	private String category;
-	
+
 	private String logo;
-	
+
 	@ManyToOne
 	private User user;
 
@@ -85,8 +86,6 @@ public class Story {
 		this.category = category;
 	}
 
-	
-	
 	public String getTitle_long() {
 		return title_long;
 	}
@@ -115,7 +114,5 @@ public class Story {
 	public String toString() {
 		return "Story [title=" + title + ", title_long=" + title_long + ", content=" + content + ", category=" + category + ", logo=" + logo + "]";
 	}
-	
-	
-	
+
 }

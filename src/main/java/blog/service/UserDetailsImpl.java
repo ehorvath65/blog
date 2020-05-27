@@ -18,25 +18,25 @@ import blog.repo.UserRepository;
 
 @Service
 public class UserDetailsImpl implements UserDetailsService {
-		
+
 	@Autowired
 	private UserRepository userRepo;
-	
+
 	@Override
 	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String username) {
 		User user = userRepo.findByFullName(username);
-		
-		if (user == null) throw new UsernameNotFoundException(username);
-		
+
+		if (user == null)
+			throw new UsernameNotFoundException(username);
+
 		Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
 		for (Role role : user.getRoles()) {
-			
+
 			grantedAuthorities.add(new SimpleGrantedAuthority(role.getRole()));
 		}
-		
+
 		return new org.springframework.security.core.userdetails.User(user.getFullName(), user.getPassword(), grantedAuthorities);
 	}
-	
 
 }

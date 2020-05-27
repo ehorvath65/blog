@@ -55,7 +55,7 @@ public class StoryService {
 //	public String getCountCategories(String category) {
 //		return storyRepo.countCategories(category);
 //	}
-	
+
 	public String countByCategoryIgnoreCase(String category) {
 		return storyRepo.countByCategoryIgnoreCase(category);
 	}

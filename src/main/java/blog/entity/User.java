@@ -20,35 +20,30 @@ import blog.entity.Story;
 import javax.persistence.JoinColumn;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User {
-	
+
 	@Id
 	@GeneratedValue
-	private Long id; 
-	
-	@Column(unique=true, nullable=false) //egyedinek kell lennie és nem lehet NULL
+	private Long id;
+
+	@Column(unique = true, nullable = false) // egyedinek kell lennie és nem lehet NULL
 	private String email;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private String password;
 
 	private String fullName;
-	
+
 	private String activation;
-	
+
 	private Boolean enabled;
-	
+
 	@OneToMany(mappedBy = "user")
 	private List<Story> stories;
-	
-	
+
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(
-			name ="users_roles",
-			joinColumns = {@JoinColumn(name="user_id")},
-			inverseJoinColumns = {@JoinColumn(name="roles_id")}			
-			)
+	@JoinTable(name = "users_roles", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "roles_id") })
 	private Set<Role> roles = new HashSet<Role>();
 
 	public User() {
@@ -85,7 +80,7 @@ public class User {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-	
+
 	public String getActivation() {
 		return activation;
 	}
@@ -109,7 +104,6 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-	
 
 	public List<Story> getStories() {
 		return stories;
@@ -123,5 +117,5 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + ", roles=" + roles + "]";
 	}
-		
+
 }

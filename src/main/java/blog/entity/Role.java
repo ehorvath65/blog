@@ -10,23 +10,23 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="roles")
+@Table(name = "roles")
 public class Role {
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;
-	
+
 	private String role;
-	
+
 	@ManyToMany(mappedBy = "roles")
 	private Set<User> users = new HashSet<User>();
 
 	private Role() {
 	}
-	
+
 	public Role(String role) {
-		this.role=role;
+		this.role = role;
 	}
 
 	public Long getId() {
@@ -57,5 +57,5 @@ public class Role {
 	public String toString() {
 		return "Role [id=" + id + ", role=" + role + "]";
 	}
-	
+
 }

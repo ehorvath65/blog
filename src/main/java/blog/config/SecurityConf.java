@@ -11,50 +11,41 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-
 //@EnableGlobalMethodSecurity(securedEnabled = true)
 @EnableWebSecurity
 @Configuration
 public class SecurityConf extends WebSecurityConfigurerAdapter {
-	
 
 	@Autowired
 	private UserDetailsService userDetailsService;
-		
+
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
+
 	@Bean
 	public AuthenticationManager customAuthenticationManager() throws Exception {
 		return authenticationManager();
 	}
-	
+
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
 	}
-	
-	
+
 	@Override
 	protected void configure(HttpSecurity httpSec) throws Exception {
-		
-		httpSec
-			.authorizeRequests() //az alábbiakat engedélyezzük
-				.antMatchers("/createposts/**")				
-					.authenticated()
-																
-				//.anyRequest().authenticated() //minden kéréshez autentikálni kell
-			.and()
-				.formLogin() //a login oldal elérését lehetővétesszük
-					.loginPage("/login") //a login oldalra irányítson minket
-					.permitAll() //mindenki számára
-			.and()
-				.logout()
-					.logoutSuccessUrl("/login?logout") //a login oldalra irányítson vissza a logout paraméterrel
-					.permitAll();
+
+		httpSec.authorizeRequests() // az alábbiakat engedélyezzük
+				.antMatchers("/createposts/**").authenticated()
+
+				// .anyRequest().authenticated() //minden kéréshez autentikálni kell
+				.and().formLogin() // a login oldal elérését lehetővétesszük
+				.loginPage("/login") // a login oldalra irányítson minket
+				.permitAll() // mindenki számára
+				.and().logout().logoutSuccessUrl("/login?logout") // a login oldalra irányítson vissza a logout paraméterrel
+				.permitAll();
 	}
-	
-	
+
 }
