@@ -52,14 +52,14 @@ public class StoryService {
 		return storyRepo.findAllLimitedTo4();
 	}
 
-//	public String getCountCategories(String category) {
-//		return storyRepo.countCategories(category);
-//	}
-
 	public String countByCategoryIgnoreCase(String category) {
 		return storyRepo.countByCategoryIgnoreCase(category);
 	}
-
+	
+	public List<String> getDistinctLowerCategory() {
+		return storyRepo.findDistinctLowerCategory();
+	}
+	
 	public void save(Story story) {
 		Date date = new Date();
 		story.setPosted(date); // dátumot hozzáadjuk

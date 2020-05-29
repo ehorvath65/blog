@@ -3,6 +3,9 @@ package blog.controller;
 import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,7 @@ public class HomeController {
 
 	private StoryService storyService;
 	private String categoryNoAccents;
+	private LinkedHashMap<String, String> counted = new LinkedHashMap<>();
 
 	@Autowired
 	public void setStoryService(StoryService storyService) {
@@ -31,11 +35,15 @@ public class HomeController {
 
 	private void extracted(Model model) {
 		model.addAttribute("limit4", storyService.getAllByLimited4());
+		model.addAttribute("catDist", storyService.getDistinctLowerCategory());
 		for (String category : categories) {
 			categoryNoAccents = Normalizer.normalize(category, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
 			model.addAttribute("count" + categoryNoAccents.substring(0, 1).toUpperCase() + categoryNoAccents.substring(1),
 					storyService.countByCategoryIgnoreCase(category));
+			counted.put(category, storyService.countByCategoryIgnoreCase(category));
 		}
+		System.out.println(counted);
+		model.addAttribute("counted", counted);
 	}
 
 	@RequestMapping("/")

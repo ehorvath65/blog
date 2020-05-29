@@ -26,13 +26,11 @@
                 <article th:each="story : ${limit4}">
                   <div class="post post-row">
 
-                    <a class="post-img" th:href="@{${story.title}}"><img th:src="${story.logo}"
-                      alt="" /></a>
+                    <a class="post-img" th:href="@{${story.title}}"><img th:src="${story.logo}" alt="" /></a>
                     <div class="post-body">
                       <div class="post-meta">
-                        <a class="post-category" th:classappend="${story.category.toLowerCase()}"
-                          th:text="${story.category}" th:href="${story.category}">Category</a> <span
-                          class="post-date"
+                        <a class="post-category" th:classappend="${story.category.toLowerCase()}" th:text="${story.category}"
+                          th:href="${story.category}">Category</a> <span class="post-date"
                           th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}">2020 május 26</span>
                       </div>
                       <h3 class="post-title">
@@ -51,41 +49,9 @@
 
           <div class="col-md-4">
             <!-- categories -->
-            <div class="aside-widget">
-              <div class="section-title">
-                <h2>Kategóriák</h2>
-              </div>
-              <div class="category-widget">
-                <ul>
-                  <li><a href="/java" class="cat-1">JAVA<span th:text="${countJava}">0</span></a></li>
-                  <li><a href="/r" class="cat-2">R<span th:text="${countR}">0</span></a></li>
-                  <li><a href="/sql" class="cat-4">SQL<span th:text="${countSql}">0</span></a></li>
-                  <li><a href="/gis" class="cat-3">GIS<span th:text="${countGis}">0</span></a></li>
-                  <!-- 		<li><a href="/tech" class="cat-5">Tech<span th:text="${countTech}">0</span></a></li>
-									<li><a href="/data" class="cat-5">Data<span th:text="${countData}">0</span></a></li> -->
-                </ul>
-              </div>
-            </div>
             <!-- /catagories -->
-
+            <div th:replace="~{fragments/cats}"></div>
             <!-- tags -->
-            <div class="aside-widget">
-              <div class="tags-widget">
-                <ul>
-                  <li><a href="#">JAVA</a></li>
-                  <li><a href="#">R</a></li>
-                  <li><a href="#">Tutorial</a></li>
-                  <li><a href="#">Backend</a></li>
-                  <li><a href="#">SQL</a></li>
-                  <li><a href="#">GIS</a></li>
-                  <li><a href="#">Development</a></li>
-                  <li><a href="#">Blog</a></li>
-                  <li><a href="#">Data</a></li>
-                  <li><a href="#">Spring Boot</a></li>
-                  <li><a href="#">Tech</a></li>
-                </ul>
-              </div>
-            </div>
             <!-- /tags -->
 
           </div>

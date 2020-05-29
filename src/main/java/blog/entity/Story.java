@@ -1,6 +1,5 @@
 package blog.entity;
 
-import java.text.Normalizer;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,14 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import blog.entity.User;
-
 @Entity
 public class Story {
 
 	@GeneratedValue
 	@Id
 	private Long id;
+	
 	private String title;
 	private String title_long;
 

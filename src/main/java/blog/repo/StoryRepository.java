@@ -29,11 +29,17 @@ public interface StoryRepository extends CrudRepository<Story, Long> {
 
 	List<Story> findFirstByCategoryIgnoreCaseOrderByPostedDesc(String category);
 
-	@Query(value = "SELECT * FROM Story s ORDER BY posted desc LIMIT 4", nativeQuery = true)
+	@Query(value = "SELECT * FROM Story ORDER BY posted desc LIMIT 4", nativeQuery = true)
 	List<Story> findAllLimitedTo4();
 
 	String countByCategoryIgnoreCase(String category);
-
+	
+	@Query(value = "SELECT DISTINCT LOWER(category) FROM Story", nativeQuery = true)
+	List<String> findDistinctLowerCategory();
+	
+//	List<Story> findByCategory(String category);
+//	List<Story> findByOrderByIdDesc();
+	
 }
 
 //long countByNameEndingWith(String endString);

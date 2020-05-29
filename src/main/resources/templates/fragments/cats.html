@@ -1,0 +1,33 @@
+<!-- categories -->
+<div class="aside-widget">
+  <div class="section-title">
+    <h2>Kategóriák</h2>
+  </div>
+  <div class="category-widget">
+    <ul>
+      <li th:each="cat : ${catDist}"><a th:href="@{'/' + ${cat}}" th:classappend="${cat}"
+        th:utext="${cat.toUpperCase()} + '<span>' + ${counted.get(cat)} + '</span>'">CAT</a></li>
+    </ul>
+  </div>
+</div>
+<!-- /catagories -->
+
+<!-- tags -->
+<div class="aside-widget">
+  <div class="tags-widget">
+    <ul>
+      <li><a href="#">JAVA</a></li>
+      <li><a href="#">R</a></li>
+      <li><a href="#">Tutorial</a></li>
+      <li><a href="#">Backend</a></li>
+      <li><a href="#">SQL</a></li>
+      <li><a href="#">GIS</a></li>
+      <li><a href="#">Development</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Data</a></li>
+      <li><a href="#">Spring Boot</a></li>
+      <li><a href="#">Tech</a></li>
+    </ul>
+  </div>
+</div>
+<!-- /tags -->
