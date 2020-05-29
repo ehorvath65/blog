@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8"></meta>
 <title th:replace="layouts/main :: title">title</title>
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
 </head>
 <body>
 
@@ -25,12 +27,11 @@
               <div class="col-md-12">
                 <article th:each="story : ${limit4}">
                   <div class="post post-row">
-
                     <a class="post-img" th:href="@{${story.title}}"><img th:src="${story.logo}" alt="" /></a>
                     <div class="post-body">
                       <div class="post-meta">
                         <a class="post-category" th:classappend="${story.category.toLowerCase()}" th:text="${story.category}"
-                          th:href="${story.category}">Category</a> <span class="post-date"
+                          th:href="${story.category.toLowerCase()}">Category</a> <span class="post-date"
                           th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}">2020 május 26</span>
                       </div>
                       <h3 class="post-title">
@@ -50,7 +51,7 @@
           <div class="col-md-4">
             <!-- categories -->
             <!-- /catagories -->
-            <div th:replace="~{fragments/cats}"></div>
+            <div  th:replace="~{fragments/cats}"></div>
             <!-- tags -->
             <!-- /tags -->
 
