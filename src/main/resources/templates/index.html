@@ -10,11 +10,8 @@
 
   <div layout:fragment="loginContent">
 
-    <!-- section -->
     <div class="section">
-      <!-- container -->
       <div class="container">
-        <!-- row -->
         <div class="row">
           <div class="col-md-8">
             <div class="row">
@@ -23,7 +20,7 @@
                   <h2>Legfrissebb</h2>
                 </div>
               </div>
-              <!-- post -->
+<!--               post -->
               <div class="col-md-12">
                 <article th:each="story : ${limit4}">
                   <div class="post post-row">
@@ -43,26 +40,23 @@
                   </div>
                 </article>
               </div>
-              <!-- /post -->
+<!--               /post -->
 
             </div>
           </div>
 
           <div class="col-md-4">
-            <!-- categories -->
-            <!-- /catagories -->
+<!--             categories -->
+<!--             /catagories -->
             <div  th:replace="~{fragments/cats}"></div>
-            <!-- tags -->
-            <!-- /tags -->
+<!--             tags -->
+<!--             /tags -->
 
           </div>
 
         </div>
-        <!-- /row -->
       </div>
-      <!-- /container -->
     </div>
-    <!-- /section -->
 
   </div>
 
