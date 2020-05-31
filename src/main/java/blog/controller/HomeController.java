@@ -1,8 +1,5 @@
 package blog.controller;
 
-import java.text.Normalizer;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 
@@ -28,12 +25,10 @@ public class HomeController {
 		this.storyService = storyService;
 	}
 
-	private HashSet<String> categories = new HashSet<>(Arrays.asList("java", "r", "sql", "gis", "springboot"));
-
 	private void extracted(Model model) {
 		model.addAttribute("limit4", storyService.getAllByLimited4());
 		model.addAttribute("catDist", storyService.getDistinctLowerCategory());
-		for (String category : categories) {
+		for (String category : storyService.getDistinctLowerCategory()) {
 			counted.put(category, storyService.countByCategoryIgnoreCase(category));
 		}
 		model.addAttribute("counted", counted);
@@ -48,7 +43,7 @@ public class HomeController {
 	@RequestMapping("/createposts")
 	public String createposts(Model model) {
 		model.addAttribute("story", new Story());
-		
+
 		extracted(model);
 		return "createposts";
 	}
@@ -63,11 +58,10 @@ public class HomeController {
 	@RequestMapping("/{control}")
 	public String searchForCategory(@PathVariable(value = "control") String control, Model model) throws Exception {
 		extracted(model);
-		if (categories.contains(control)) {
+		if (storyService.getDistinctLowerCategory().contains(control)) {
 			model.addAttribute(control, storyService.getStoriesByCategoryName(control));
 			model.addAttribute("controlAll", storyService.getStoriesByCategoryName(control));
 			return "categories";
-//
 		} else {
 			model.addAttribute("story", storyService.getSpecificStory(control));
 			return "story";
