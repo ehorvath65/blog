@@ -28,7 +28,7 @@ public class HomeController {
 		this.storyService = storyService;
 	}
 
-	private HashSet<String> categories = new HashSet<>(Arrays.asList("java", "r", "sql", "gis"));
+	private HashSet<String> categories = new HashSet<>(Arrays.asList("java", "r", "sql", "gis", "springboot"));
 
 	private void extracted(Model model) {
 		model.addAttribute("limit4", storyService.getAllByLimited4());
@@ -36,7 +36,6 @@ public class HomeController {
 		for (String category : categories) {
 			counted.put(category, storyService.countByCategoryIgnoreCase(category));
 		}
-		System.out.println(counted);
 		model.addAttribute("counted", counted);
 	}
 
@@ -66,8 +65,9 @@ public class HomeController {
 		extracted(model);
 		if (categories.contains(control)) {
 			model.addAttribute(control, storyService.getStoriesByCategoryName(control));
-			model.addAttribute(control + "All", storyService.getStoriesByCategoryName(control));
-			return (control);
+			model.addAttribute("controlAll", storyService.getStoriesByCategoryName(control));
+			return "categories";
+//
 		} else {
 			model.addAttribute("story", storyService.getSpecificStory(control));
 			return "story";

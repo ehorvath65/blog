@@ -3,18 +3,18 @@
   layout:decorate="~{layouts/main}">
 <head>
 <meta charset="utf-8"></meta>
-<title>R</title>
+<title>Title</title>
 </head>
 <body>
 
   <div layout:fragment="loginContent">
 
     <div id="post-header" class="page-header">
-      <div class="background-img" style="background-image: url('./img/post-page.jpg');"></div>
+      <div class="background-img" style="background-image: url('img/post-page.jpg');"></div>
       <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h1>R</h1>
+            <h1 th:text="${control.toUpperCase()}">CAT</h1>
           </div>
 
         </div>
@@ -37,13 +37,14 @@
 
               <!-- post -->
               <div class="col-md-12">
-                <article th:each="story : ${rAll}">
+                <article th:each="story : ${controlAll}">
                   <div class="post post-row">
                     <a class="post-img" th:href="@{${story.title}}"><img th:src="${story.logo}" alt="" /></a>
                     <div class="post-body">
                       <div class="post-meta">
-                        <a class="post-category cat-2" th:text="${story.category}" th:href="${story.category.toLowerCase()}">Category</a> <span class="post-date"
-                          th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}">2020 május 26</span>
+<!--                       <a class="post-category" th:classappend="${control}" th:text="${story.category}" th:href="${story.category.toLowerCase()}" -->
+                        <a class="post-category" th:classappend="${control}" th:text="${control}" th:href="${control}">Category</a> <span
+                          class="post-date" th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}">2020 május 26</span>
                       </div>
                       <h3 class="post-title">
                         <a th:text="${story.title}" th:href="@{${story.title}}">Ez itt a cím</a>
@@ -59,13 +60,7 @@
           </div>
 
           <div class="col-md-4">
-
-            <!-- post widget -->
-            <div class="aside-widget"></div>
-            <!-- /post widget -->
-            
-<div  th:replace="~{fragments/cats}"></div>
-
+            <div th:replace="~{fragments/cats}"></div>
           </div>
         </div>
         <!-- /row -->
