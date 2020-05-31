@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" layout:decorator="layouts/main">
+<!-- <html lang="en" layout:decorator="layouts/main"> -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layouts/main}">
+<html>
 <head>
 <meta charset="utf-8"></meta>
-<title th:replace="layouts/main :: title">title</title>
-<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-
+<title>Legfrissebb</title>
 </head>
 <body>
 
@@ -20,7 +21,7 @@
                   <h2>Legfrissebb</h2>
                 </div>
               </div>
-<!--               post -->
+              <!-- post -->
               <div class="col-md-12">
                 <article th:each="story : ${limit4}">
                   <div class="post post-row">
@@ -40,17 +41,17 @@
                   </div>
                 </article>
               </div>
-<!--               /post -->
+              <!-- /post -->
 
             </div>
           </div>
 
           <div class="col-md-4">
-<!--             categories -->
-<!--             /catagories -->
-            <div  th:replace="~{fragments/cats}"></div>
-<!--             tags -->
-<!--             /tags -->
+            <!-- categories -->
+            <!-- /catagories -->
+            <div th:replace="~{fragments/cats}"></div>
+            <!-- tags -->
+            <!-- /tags -->
 
           </div>
 

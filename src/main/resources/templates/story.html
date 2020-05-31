@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" layout:decorator="layouts/main">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layouts/main}">
 <head>
 <meta charset="utf-8"></meta>
 <title th:replace="layouts/main :: title">title</title>
@@ -58,8 +59,8 @@
 
                 </div>
                 <div class="post-shares sticky-shares">
-                  <a th:href="@{'https://www.facebook.com/sharer.php?u=http://www.adatvilag.hu/' + ${story.title}}" class="share-facebook"><i
-                    class="fa fa-facebook"></i></a> <a th:href="@{'https://www.linkedin.com/shareArticle?url=http://www.adatvilag.hu/' + ${story.title}}"
+                  <a th:href="@{'https://www.facebook.com/sharer.php?u=https://barjak.eu/' + ${story.title}}" class="share-facebook"><i
+                    class="fa fa-facebook"></i></a> <a th:href="@{'https://www.linkedin.com/shareArticle?url=https://barjak.eu/' + ${story.title}}"
                     class="share-linkedin"><i class="fa fa-linkedin"></i></a>
                 </div>
               </div>
