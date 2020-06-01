@@ -17,6 +17,7 @@ public class StoryService {
 
 	private StoryRepository storyRepo;
 	private UserRepository userRepo;
+//	private CatRepository catRepo;
 
 	@Autowired
 	public void setStoryRepo(StoryRepository storyRepo) {
@@ -55,11 +56,11 @@ public class StoryService {
 	public String countByCategoryIgnoreCase(String category) {
 		return storyRepo.countByCategoryIgnoreCase(category);
 	}
-	
+
 	public List<String> getDistinctLowerCategory() {
 		return storyRepo.findDistinctLowerCategory();
 	}
-	
+
 	public void save(Story story) {
 		Date date = new Date();
 		story.setPosted(date); // dátumot hozzáadjuk

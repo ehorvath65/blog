@@ -14,26 +14,23 @@ public class Story {
 	@GeneratedValue
 	@Id
 	private Long id;
-	
 	private String title;
 	private String title_long;
-
 	@Column(columnDefinition = "TEXT")
 	private String content;
-
 	private Date posted;
-
 	private String category;
-
+//	private Long cat_id;
 	private String logo;
-
 	@ManyToOne
 	private User user;
+	@ManyToOne
+	private Cat cat;
 
 	public Story() {
 	}
 
-	public Story(String title, String title_long, String content, Date posted, String category, String logo, User user) {
+	public Story(String title, String title_long, String content, Date posted, String category, String logo, User user, Cat cat) {
 		super();
 		this.title = title;
 		this.title_long = title_long;
@@ -42,6 +39,15 @@ public class Story {
 		this.category = category;
 		this.logo = logo;
 		this.user = user;
+		this.cat = cat;
+	}
+
+	public Cat getCat() {
+		return cat;
+	}
+
+	public void setCat(Cat cat) {
+		this.cat = cat;
 	}
 
 	public Long getId() {
@@ -110,7 +116,8 @@ public class Story {
 
 	@Override
 	public String toString() {
-		return "Story [title=" + title + ", title_long=" + title_long + ", content=" + content + ", category=" + category + ", logo=" + logo + "]";
+		return "Story [id=" + id + ", title=" + title + ", title_long=" + title_long + ", content=" + content + ", posted=" + posted + ", category="
+				+ category + ", logo=" + logo + ", user=" + user + ", cat=" + cat + "]";
 	}
 
 }
