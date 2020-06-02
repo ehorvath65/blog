@@ -44,7 +44,7 @@
                     <div class="post-body">
                       <div class="post-meta">
 <!--                       <a class="post-category" th:classappend="${control}" th:text="${story.category}" th:href="${story.category.toLowerCase()}" -->
-                        <a class="post-category" th:classappend="${control}" th:text="${control}" th:href="${control}">Category</a> <span
+                        <a class="post-category" th:classappend="${control}" th:text="${completeCats.get(control).catname}" th:href="${control}">Category</a> <span
                           class="post-date" th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}">2020 május 26</span>
                       </div>
                       <h3 class="post-title">
