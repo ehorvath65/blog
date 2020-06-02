@@ -33,7 +33,7 @@ public class HomeController {
 	}
 
 	private void extracted(Model model) {
-		model.addAttribute("catsAndCatnames", catService.getCatsAndCatnames());
+		model.addAttribute("completeCats", catService.getCompleteCats());
 		model.addAttribute("limit4", storyService.getAllByLimited4());
 		model.addAttribute("catDist", storyService.getDistinctLowerCategory());
 		for (String category : storyService.getDistinctLowerCategory()) {

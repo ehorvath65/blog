@@ -13,19 +13,19 @@ import blog.repo.CatRepository;
 public class CatService {
 
 	private CatRepository catRepo;
-	LinkedHashMap<String, String> catsAndCatnames = new LinkedHashMap<>();
+	LinkedHashMap<String, Cat> completeCats = new LinkedHashMap<>();
 
 	@Autowired
 	public void setCatRepo(CatRepository catRepo) {
 		this.catRepo = catRepo;
 	}
 
-	public LinkedHashMap<String, String> getCatsAndCatnames() {
+	public LinkedHashMap<String, Cat> getCompleteCats() {
 		List<Cat> items = catRepo.findAll();
 		for (Cat item : items) {
-			catsAndCatnames.put(item.getCat(), item.getCatname());
+			completeCats.put(item.getCat(), item);
 		}
-		return catsAndCatnames;
+		return completeCats;
 	}
 
 }
