@@ -36,11 +36,5 @@ public interface StoryRepository extends CrudRepository<Story, Long> {
 	
 	@Query(value = "SELECT DISTINCT LOWER(category) FROM Story", nativeQuery = true)
 	List<String> findDistinctLowerCategory();
-
-//  Ezek működtek:	
-//	List<Story> findByCategory(String category);
-//	List<Story> findByOrderByIdDesc();
 	
 }
-
-//long countByNameEndingWith(String endString);

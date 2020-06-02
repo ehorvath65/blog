@@ -20,7 +20,6 @@ public class Story {
 	private String content;
 	private Date posted;
 	private String category;
-//	private Long cat_id;
 	private String logo;
 	@ManyToOne
 	private User user;
@@ -31,7 +30,6 @@ public class Story {
 	}
 
 	public Story(String title, String title_long, String content, Date posted, String category, String logo, User user, Cat cat) {
-		super();
 		this.title = title;
 		this.title_long = title_long;
 		this.content = content;

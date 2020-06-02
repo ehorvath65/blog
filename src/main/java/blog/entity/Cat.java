@@ -1,23 +1,16 @@
 package blog.entity;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Cat {
 
 	@Id
 	private Long id;
-
 	private String cat;
 	private String catname;
 	private String catcolor;
-
-	@OneToMany(mappedBy = "cat")
-	private List<Story> stories;
 
 	public Cat() {
 	}
@@ -52,14 +45,6 @@ public class Cat {
 
 	public void setCatcolor(String catcolor) {
 		this.catcolor = catcolor;
-	}
-
-	public List<Story> getStories() {
-		return stories;
-	}
-
-	public void setStories(List<Story> stories) {
-		this.stories = stories;
 	}
 
 	@Override

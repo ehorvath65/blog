@@ -37,6 +37,7 @@
 
               <!-- post -->
               <div class="col-md-12">
+              <p th:text="${control}">...</p>
                 <article th:each="story : ${controlAll}">
                   <div class="post post-row">
                     <a class="post-img" th:href="@{${story.title}}"><img th:src="${story.logo}" alt="" /></a>

@@ -17,7 +17,6 @@ public class StoryService {
 
 	private StoryRepository storyRepo;
 	private UserRepository userRepo;
-//	private CatRepository catRepo;
 
 	@Autowired
 	public void setStoryRepo(StoryRepository storyRepo) {

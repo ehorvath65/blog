@@ -13,19 +13,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import blog.entity.Story;
 import blog.service.StoryService;
+import blog.service.CatService;
 
 @Controller
 public class HomeController {
 
 	private StoryService storyService;
+	private CatService catService;
 	private LinkedHashMap<String, String> counted = new LinkedHashMap<>();
 
 	@Autowired
 	public void setStoryService(StoryService storyService) {
 		this.storyService = storyService;
 	}
+	
+	@Autowired
+	public void setCatService(CatService catService) {
+		this.catService = catService;
+	}
 
 	private void extracted(Model model) {
+		model.addAttribute("catsAndCatnames", catService.getCatsAndCatnames());
 		model.addAttribute("limit4", storyService.getAllByLimited4());
 		model.addAttribute("catDist", storyService.getDistinctLowerCategory());
 		for (String category : storyService.getDistinctLowerCategory()) {
@@ -59,7 +67,6 @@ public class HomeController {
 	public String searchForCategory(@PathVariable(value = "control") String control, Model model) throws Exception {
 		extracted(model);
 		if (storyService.getDistinctLowerCategory().contains(control)) {
-			model.addAttribute(control, storyService.getStoriesByCategoryName(control));
 			model.addAttribute("controlAll", storyService.getStoriesByCategoryName(control));
 			return "categories";
 		} else {

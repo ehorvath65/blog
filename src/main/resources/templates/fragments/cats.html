@@ -6,7 +6,7 @@
   <div class="category-widget">
     <ul>
       <li th:each="cat : ${catDist}"><a th:href="@{'/' + ${cat}}" th:classappend="${cat}"
-        th:utext="${cat.toUpperCase()} + '<span>' + ${counted.get(cat)} + '</span>'">CAT</a></li>
+        th:utext="${catsAndCatnames.get(cat).toUpperCase()} + '<span>' + ${counted.get(cat)} + '</span>'">CAT</a></li>
     </ul>
   </div>
 </div>
