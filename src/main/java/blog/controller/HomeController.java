@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import blog.entity.Story;
-import blog.service.StoryService;
 import blog.service.CatService;
+import blog.service.StoryService;
 
 @Controller
 public class HomeController {
