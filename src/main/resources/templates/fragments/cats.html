@@ -12,7 +12,7 @@
 </div>
 <!-- /catagories -->
 <!-- New Style -->
-<div class="addstyle"></div>
+<div class="addstylecats"></div>
 <script th:inline="javascript" type="text/javascript">
     var completeCats = [[${completeCats}]];
     let style = '<style type="text/css">';
@@ -24,8 +24,18 @@
     	let selector = `.category-widget ul li>a.${key}:hover {color: ${completeCats[key].catcolor};}`;
     	style = style + selector;
     }
+    //colors of top menu
+    for(let key in completeCats) {
+        let selector = `.nav-menu li.${key} a:after {background-color: ${completeCats[key].catcolor};}`;
+        style = style + selector;
+    }
+    //colors of posts
+    for(let key in completeCats) {
+        let selector = `.post-meta .post-category.cat-1, .post-category.${key} {background-color: ${completeCats[key].catcolor};}`;
+        style = style + selector;
+    }
     style = style + "</style>";
-    document.querySelector(".addstyle").innerHTML = style;
+    document.querySelector(".addstylecats").innerHTML = style;
 </script>
 <style>
 /*=========================================================

@@ -51,7 +51,7 @@
             <li th:each="catMap : ${completeCats}" th:classappend="${catMap.key}"><a
               th:href="${counted.get(catMap.key) != null} ? @{'/' + ${catMap.key}} : @{'#'}" th:text="${catMap.value.catname}">CAT</a></li>
           </ul>
-
+          
           <!-- /nav -->
 
         </div>

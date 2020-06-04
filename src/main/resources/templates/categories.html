@@ -37,15 +37,14 @@
 
               <!-- post -->
               <div class="col-md-12">
-              <p th:text="${control}">...</p>
                 <article th:each="story : ${controlAll}">
                   <div class="post post-row">
                     <a class="post-img" th:href="@{${story.title}}"><img th:src="${story.logo}" alt="" /></a>
                     <div class="post-body">
                       <div class="post-meta">
-<!--                       <a class="post-category" th:classappend="${control}" th:text="${story.category}" th:href="${story.category.toLowerCase()}" -->
-                        <a class="post-category" th:classappend="${control}" th:text="${completeCats.get(control).catname}" th:href="${control}">Category</a> <span
-                          class="post-date" th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}">2020 május 26</span>
+                        <!--                       <a class="post-category" th:classappend="${control}" th:text="${story.category}" th:href="${story.category.toLowerCase()}" -->
+                        <a class="post-category" th:classappend="${control}" th:text="${completeCats.get(control).catname}" th:href="${control}">Category</a>
+                        <span class="post-date" th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}">2020 május 26</span>
                       </div>
                       <h3 class="post-title">
                         <a th:text="${story.title}" th:href="@{${story.title}}">Ez itt a cím</a>
