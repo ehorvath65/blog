@@ -1,7 +1,7 @@
 <!-- categories -->
 <div class="aside-widget">
   <div class="section-title">
-    <h2 class="1">Kategóriák</h2>
+    <h2>Kategóriák</h2>
   </div>
   <div class="category-widget">
     <ul>
@@ -10,19 +10,22 @@
     </ul>
   </div>
 </div>
+<!-- /catagories -->
 <!-- New Style -->
 <div class="addstyle"></div>
-<!-- /catagories -->
-
 <script th:inline="javascript" type="text/javascript">
     var completeCats = [[${completeCats}]];
     let style = '<style type="text/css">';
     for(let key in completeCats) {
+        let selector = `.category-widget ul li>a.${key}>span {background-color: ${completeCats[key].catcolor};}`;
+        style = style + selector;
+    }
+    for(let key in completeCats) {
     	let selector = `.category-widget ul li>a.${key}:hover {color: ${completeCats[key].catcolor};}`;
     	style = style + selector;
     }
-	style = style + "</style>";
-	document.querySelector(".addstyle").innerHTML = style;
+    style = style + "</style>";
+    document.querySelector(".addstyle").innerHTML = style;
 </script>
 <style>
 /*=========================================================
@@ -59,39 +62,7 @@
 	border-radius: 2px;
 }
 
-.category-widget ul li>a.java>span {
-	background-color: #4BB92F;
-}
-
-.category-widget ul li>a.r>span {
-	background-color: #ff8700;
-}
-
-.category-widget ul li>a.gis>span {
-	background-color: #8d00ff;
-}
-
-.category-widget ul li>a.sql>span {
-	background-color: #0078ff;
-}
-
 .category-widget ul li>a:hover, .category-widget ul li>a:focus {
 	text-decoration: none;
 }
-
-/* .category-widget ul li>a.java:hover { */
-/* 	color: #4BB92F; */
-/* } */
-
-/* .category-widget ul li>a.r:hover { */
-/* 	color: #ff8700; */
-/* } */
-
-/* .category-widget ul li>a.gis:hover { */
-/* 	color: #8d00ff; */
-/* } */
-
-/* .category-widget ul li>a.sql:hover { */
-/* 	color: #0078ff; */
-/* } */
 </style>
