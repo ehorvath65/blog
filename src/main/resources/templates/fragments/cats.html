@@ -1,3 +1,4 @@
+<html lang="hu" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <!-- categories -->
 <div class="aside-widget">
   <div class="section-title">
@@ -12,31 +13,26 @@
 </div>
 <!-- /catagories -->
 <!-- New Style -->
-<div class="addstylecats"></div>
-<script th:inline="javascript" type="text/javascript">
-    var completeCats = [[${completeCats}]];
-    let style = '<style type="text/css">';
-    for(let key in completeCats) {
-        let selector = `.category-widget ul li>a.${key}>span {background-color: ${completeCats[key].catcolor};}`;
-        style = style + selector;
-    }
-    for(let key in completeCats) {
-    	let selector = `.category-widget ul li>a.${key}:hover {color: ${completeCats[key].catcolor};}`;
-    	style = style + selector;
-    }
-    //colors of top menu
-    for(let key in completeCats) {
-        let selector = `.nav-menu li.${key} a:after {background-color: ${completeCats[key].catcolor};}`;
-        style = style + selector;
-    }
-    //colors of posts
-    for(let key in completeCats) {
-        let selector = `.post-meta .post-category.cat-1, .post-category.${key} {background-color: ${completeCats[key].catcolor};}`;
-        style = style + selector;
-    }
-    style = style + "</style>";
-    document.querySelector(".addstylecats").innerHTML = style;
-</script>
+<!-- color of categories counts, color of categories names, colors of top menu, color of post category  -->
+<th:block th:utext="'<style type=&quot;text/css&quot;>'">
+</th:block>
+<th:block th:each="completeCat : ${completeCats}">
+<th:block
+  th:utext="'.category-widget ul li>a.' + ${completeCat.key} + '>span {background-color: ' + ${completeCat.value.catcolor} + ';}'">
+</th:block>
+<th:block
+  th:utext="'.category-widget ul li>a.' + ${completeCat.key} + ':hover {color: ' + ${completeCat.value.catcolor} + ';}'">
+</th:block>
+<th:block
+  th:utext="'.nav-menu li.' + ${completeCat.key} + ' a:after {background-color: ' + ${completeCat.value.catcolor} + ';}'">
+</th:block>
+<th:block
+  th:utext="'.post-meta .post-category.cat-1, .post-category.' + ${completeCat.key} + ' {background-color: ' + ${completeCat.value.catcolor} + ';}'">
+</th:block>
+</th:block>
+<th:block th:utext="'</style type=&quot;text/css&quot;>'">
+</th:block>
+
 <style>
 /*=========================================================
     Aside
@@ -76,3 +72,4 @@
 	text-decoration: none;
 }
 </style>
+</html>
