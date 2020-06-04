@@ -51,7 +51,20 @@
             <li th:each="catMap : ${completeCats}" th:classappend="${catMap.key}"><a
               th:href="${counted.get(catMap.key) != null} ? @{'/' + ${catMap.key}} : @{'#'}" th:text="${catMap.value.catname}">CAT</a></li>
           </ul>
-          
+          <!-- New Style -->
+          <!-- colors of top menu, color of post category  -->
+          <th:block th:utext="'<style type=&quot;text/css&quot;>'">
+          </th:block>
+          <th:block th:each="completeCat : ${completeCats}">
+            <th:block th:utext="'.nav-menu li.' + ${completeCat.key} + ' a:after {background-color: ' + ${completeCat.value.catcolor} + ';}'">
+            </th:block>
+            <th:block
+              th:utext="'.post-meta .post-category.cat-1, .post-category.' + ${completeCat.key} + ' {background-color: ' + ${completeCat.value.catcolor} + ';}'">
+            </th:block>
+          </th:block>
+          <th:block th:utext="'</style type=&quot;text/css&quot;>'">
+          </th:block>
+
           <!-- /nav -->
 
         </div>
