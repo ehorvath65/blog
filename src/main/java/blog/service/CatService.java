@@ -13,7 +13,6 @@ import blog.repo.CatRepository;
 public class CatService {
 
 	private CatRepository catRepo;
-	LinkedHashMap<String, Cat> completeCats = new LinkedHashMap<>();
 
 	@Autowired
 	public void setCatRepo(CatRepository catRepo) {
@@ -21,6 +20,7 @@ public class CatService {
 	}
 
 	public LinkedHashMap<String, Cat> getCompleteCats() {
+		LinkedHashMap<String, Cat> completeCats = new LinkedHashMap<>();
 		List<Cat> items = catRepo.findAll();
 		for (Cat item : items) {
 			completeCats.put(item.getCat(), item);
