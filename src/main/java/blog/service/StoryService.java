@@ -18,7 +18,7 @@ public class StoryService {
 
 	private StoryRepository storyRepo;
 	private UserRepository userRepo;
-	private LinkedHashMap<String, String> counted = new LinkedHashMap<>();
+	private LinkedHashMap<String, String> counted;
 
 	@Autowired
 	public void setStoryRepo(StoryRepository storyRepo) {
@@ -59,6 +59,7 @@ public class StoryService {
 	}
 
 	public LinkedHashMap<String, String> getCounted() {
+		counted = new LinkedHashMap<>();
 		for (String category : getDistinctLowerCategory()) {
 			counted.put(category, storyRepo.countByCategoryIgnoreCase(category));
 		}
