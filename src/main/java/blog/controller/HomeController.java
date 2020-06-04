@@ -1,6 +1,5 @@
 package blog.controller;
 
-import java.util.LinkedHashMap;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +19,12 @@ public class HomeController {
 
 	private StoryService storyService;
 	private CatService catService;
-	private LinkedHashMap<String, String> counted = new LinkedHashMap<>();
 
 	@Autowired
 	public void setStoryService(StoryService storyService) {
 		this.storyService = storyService;
 	}
-	
+
 	@Autowired
 	public void setCatService(CatService catService) {
 		this.catService = catService;
@@ -36,10 +34,7 @@ public class HomeController {
 		model.addAttribute("completeCats", catService.getCompleteCats());
 		model.addAttribute("limit4", storyService.getAllByLimited4());
 		model.addAttribute("catDist", storyService.getDistinctLowerCategory());
-		for (String category : storyService.getDistinctLowerCategory()) {
-			counted.put(category, storyService.countByCategoryIgnoreCase(category));
-		}
-		model.addAttribute("counted", counted);
+		model.addAttribute("counted", storyService.getCounted());
 	}
 
 	@RequestMapping("/")

@@ -1,6 +1,7 @@
 package blog.service;
 
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class StoryService {
 
 	private StoryRepository storyRepo;
 	private UserRepository userRepo;
+	private LinkedHashMap<String, String> counted = new LinkedHashMap<>();
 
 	@Autowired
 	public void setStoryRepo(StoryRepository storyRepo) {
@@ -52,12 +54,15 @@ public class StoryService {
 		return storyRepo.findAllLimitedTo4();
 	}
 
-	public String countByCategoryIgnoreCase(String category) {
-		return storyRepo.countByCategoryIgnoreCase(category);
-	}
-
 	public List<String> getDistinctLowerCategory() {
 		return storyRepo.findDistinctLowerCategory();
+	}
+
+	public LinkedHashMap<String, String> getCounted() {
+		for (String category : getDistinctLowerCategory()) {
+			counted.put(category, storyRepo.countByCategoryIgnoreCase(category));
+		}
+		return counted;
 	}
 
 	public void save(Story story) {
