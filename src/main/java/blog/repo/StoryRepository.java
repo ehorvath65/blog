@@ -33,8 +33,8 @@ public interface StoryRepository extends CrudRepository<Story, Long> {
 	List<Story> findAllLimitedTo4();
 
 	String countByCategoryIgnoreCase(String category);
-	
+
 	@Query(value = "SELECT DISTINCT LOWER(category) FROM Story", nativeQuery = true)
 	List<String> findDistinctLowerCategory();
-	
+
 }

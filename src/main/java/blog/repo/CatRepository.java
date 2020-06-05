@@ -9,7 +9,9 @@ import blog.entity.Cat;
 
 @Repository
 public interface CatRepository extends CrudRepository<Cat, Long> {
-	
+
 	List<Cat> findAll();
+
+	Cat findByCat(String cat);
 
 }

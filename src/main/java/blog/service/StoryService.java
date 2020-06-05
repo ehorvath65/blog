@@ -1,6 +1,6 @@
 package blog.service;
 
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -10,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import blog.entity.Story;
+import blog.repo.CatRepository;
 import blog.repo.StoryRepository;
 import blog.repo.UserRepository;
 
@@ -18,6 +19,7 @@ public class StoryService {
 
 	private StoryRepository storyRepo;
 	private UserRepository userRepo;
+	private CatRepository catRepo;
 	private LinkedHashMap<String, String> counted;
 
 	@Autowired
@@ -28,6 +30,11 @@ public class StoryService {
 	@Autowired
 	public void setUserRepo(UserRepository userRepo) {
 		this.userRepo = userRepo;
+	}
+
+	@Autowired
+	public void seCatRepo(CatRepository catRepo) {
+		this.catRepo = catRepo;
 	}
 
 	public List<Story> getStories() {
@@ -67,8 +74,9 @@ public class StoryService {
 	}
 
 	public void save(Story story) {
-		Date date = new Date();
-		story.setPosted(date); // dátumot hozzáadjuk
+		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+		story.setPosted(timestamp);
+		story.setCat(catRepo.findByCat(story.getCategory()));
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentPrincipalName = authentication.getName();
@@ -77,8 +85,6 @@ public class StoryService {
 		story.setUser(userRepo.findByFullName(currentPrincipalName));
 
 		storyRepo.save(story);
-		// SQL-ben ezt kellett ehhez futtatni: CREATE SEQUENCE hibernate_sequence START
-		// 1;
 	}
 
 	public void delete(Story story) {

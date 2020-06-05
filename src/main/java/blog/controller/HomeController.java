@@ -46,7 +46,6 @@ public class HomeController {
 	@RequestMapping("/createposts")
 	public String createposts(Model model) {
 		model.addAttribute("story", new Story());
-
 		extracted(model);
 		return "createposts";
 	}
