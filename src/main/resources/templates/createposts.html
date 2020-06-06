@@ -23,12 +23,15 @@
               <h2 class="form-signin-heading">Create content</h2>
               <input type="text" id="title" name="title" th:field="*{title}" class="form-control" placeholder="Title" />
               <input type="text" id="title_long" name="title_long" th:field="*{title_long}" class="form-control" placeholder="Long Title" />
-              <input type="text" id="category" name="category" th:field="*{category}" class="form-control" placeholder="Category" />
-              <textarea wrap="hard" th:style="'height: 200px;'" type="text" id="content" name="content" th:field="*{content}" class="form-control" placeholder="Content" ></textarea>
+              <select name="category">
+                <option th:each="completeCat : ${completeCats}" th:text="${completeCat.key}">_</option>
+              </select>
+              <textarea wrap="hard" th:style="'height: 200px;'" id="content" name="content" th:field="*{content}" class="form-control" placeholder="Content" ></textarea>
               <input type="text" id="logo" name="logo" th:field="*{logo}" class="form-control" placeholder="Logo" />
 
               <button class="btn btn-lg btn-primary btn-block" type="submit">Upload</button>
             </form>
+            
           </div>
         </div>
       </div>
