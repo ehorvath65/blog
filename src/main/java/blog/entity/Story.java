@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Story {
 
-	@GeneratedValue
+	@GeneratedValue(generator = "story_sequence")
 	@Id
 	private Long id;
 	private String title;
