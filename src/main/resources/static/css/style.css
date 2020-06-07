@@ -147,22 +147,22 @@ textarea.input {
 	padding: 15px;
 }
 
-.primary-button {
-	padding: 9px 45px;
-	border: none;
-	background-color: #212631;
-	font-weight: 600;
-	text-transform: uppercase;
-	font-size: 13px;
-	color: #fff;
-	-webkit-transition: 0.2s opacity;
-	transition: 0.2s opacity;
-}
+/* .primary-button { */
+/* 	padding: 9px 45px; */
+/* 	border: none; */
+/* 	background-color: #212631; */
+/* 	font-weight: 600; */
+/* 	text-transform: uppercase; */
+/* 	font-size: 13px; */
+/* 	color: #fff; */
+/* 	-webkit-transition: 0.2s opacity; */
+/* 	transition: 0.2s opacity; */
+/* } */
 
-.primary-button:hover, .primary-button:focus {
-	color: #fff;
-	opacity: 0.9;
-}
+/* .primary-button:hover, .primary-button:focus { */
+/* 	color: #fff; */
+/* 	opacity: 0.9; */
+/* } */
 
 .section {
 	padding-top: 40px;
@@ -594,7 +594,7 @@ to {
 
 .post-meta .post-category {
 	font-size: 13px;
-	text-transform: uppercase;
+/* 	text-transform: uppercase; */
 	padding: 3px 10px;
 	font-weight: 600;
 	border-radius: 2px;
