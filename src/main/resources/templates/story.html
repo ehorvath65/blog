@@ -29,9 +29,7 @@
                 <li><a href="/">Home</a></li>
                 <li><a th:text="${story.cat.cat}" th:href="@{${story.cat.cat}}">Kategória</a></li>
               </ul>
-              <h1>
-                <p th:style="'color: ' + (${story.cat.catcolor})" th:text="${story.title}">Cim</p>
-              </h1>
+              <h1 th:style="'color: ' + (${story.cat.catcolor})" th:text="${story.title}">Cim</h1>
             </article>
           </div>
         </div>
