@@ -1,4 +1,8 @@
-<html lang="hu" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html
+  lang="hu"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+>
 <!-- categories -->
 <div class="aside-widget">
   <div class="section-title">
@@ -6,8 +10,11 @@
   </div>
   <div class="category-widget">
     <ul>
-      <li th:each="cat : ${catDist}"><a th:href="@{'/' + ${cat}}" th:classappend="${cat}"
-        th:utext="${completeCats.get(cat).catname} + '<span>' + ${counted.get(cat)} + '</span>'">CAT</a></li>
+      <li th:each="cat : ${catDist}"><a
+        th:href="@{'/' + ${cat}}"
+        th:classappend="${cat}"
+        th:utext="${completeCats.get(cat).catname} + '<span>' + ${counted.get(cat)} + '</span>'"
+      >CAT</a></li>
     </ul>
   </div>
 </div>
@@ -64,4 +71,5 @@
 	text-decoration: none;
 }
 </style>
+
 </html>

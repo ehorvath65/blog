@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="~{layouts/main}">
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layouts/main}"
+>
 <head>
 <title>Legfrissebb</title>
 </head>
@@ -18,19 +22,35 @@
                   <h2>Legfrissebbek</h2>
                 </div>
               </div>
+
               <!-- post -->
               <div class="col-md-12">
                 <article th:each="story : ${limit4}">
                   <div class="post post-row">
-                    <a class="post-img" th:href="@{${story.title}}"><img th:src="${story.logo}" alt="" /></a>
+                    <a
+                      class="post-img"
+                      th:href="@{${story.title}}"
+                    ><img
+                      th:src="${story.logo}"
+                      alt=""
+                    /></a>
                     <div class="post-body">
                       <div class="post-meta">
-                        <a class="post-category" th:classappend="${story.cat.cat}" th:text="${story.cat.catname}"
-                          th:href="${story.cat.cat}">Category</a> <span class="post-date"
-                          th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}">2020 május 26</span>
+                        <a
+                          class="post-category"
+                          th:classappend="${story.cat.cat}"
+                          th:text="${story.cat.catname}"
+                          th:href="${story.cat.cat}"
+                        >Category</a> <span
+                          class="post-date"
+                          th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}"
+                        >2020 május 26</span>
                       </div>
                       <h3 class="post-title">
-                        <a th:text="${story.title}" th:href="@{${story.title}}">Ez itt a cím</a>
+                        <a
+                          th:text="${story.title}"
+                          th:href="@{${story.title}}"
+                        >Ez itt a cím</a>
                       </h3>
                       <p th:text="${story.title_long}">Alcim</p>
                     </div>

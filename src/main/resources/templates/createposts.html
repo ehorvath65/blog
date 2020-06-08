@@ -1,6 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="~{layouts/main}">
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layouts/main}"
+>
 <head>
 <meta charset="utf-8"></meta>
 <title th:replace="layouts/main :: title">title</title>
@@ -19,20 +24,68 @@
           <!-- Post content -->
           <div class="col-md-8">
 
-            <form name="create_post" th:action="@{/create}" th:object="${story}" method="post" class="form-signin">
+            <form
+              name="create_post"
+              th:action="@{/create}"
+              th:object="${story}"
+              method="post"
+              class="form-signin"
+            >
               <h2 class="form-signin-heading">Create content</h2>
-              <input style="width: 200px;" type="text" id="title" name="title" th:field="*{title}" class="form-control" placeholder="Title" />
-              <input style="width: 400px;" type="text" id="title_long" name="title_long" th:field="*{title_long}" class="form-control" placeholder="Long Title" />
-              <label for="category" style="color: grey;">Select category:&nbsp;</label>
-              <select id="category" name="category">
-                <option th:each="completeCat : ${completeCats}" th:text="${completeCat.key}">_</option>
+              <input
+                style="width: 200px;"
+                type="text"
+                id="title"
+                name="title"
+                th:field="*{title}"
+                class="form-control"
+                placeholder="Title"
+              /> <input
+                style="width: 400px;"
+                type="text"
+                id="title_long"
+                name="title_long"
+                th:field="*{title_long}"
+                class="form-control"
+                placeholder="Long Title"
+              /> <label
+                for="category"
+                style="color: grey;"
+              >Select category:&nbsp;</label> <select
+                id="category"
+                name="category"
+              >
+                <option
+                  th:each="completeCat : ${completeCats}"
+                  th:text="${completeCat.key}"
+                >_</option>
               </select>
-              <textarea wrap="hard" th:style="'height: 200px;'" id="content" name="content" th:field="*{content}" class="form-control" placeholder="Content" ></textarea>
-              <input style="width: 200px;" type="text" id="logo" name="logo" th:field="*{logo}" class="form-control" placeholder="Logo" />
+              <textarea
+                wrap="hard"
+                th:style="'height: 200px;'"
+                id="content"
+                name="content"
+                th:field="*{content}"
+                class="form-control"
+                placeholder="Content"
+              ></textarea>
+              <input
+                style="width: 200px;"
+                type="text"
+                id="logo"
+                name="logo"
+                th:field="*{logo}"
+                class="form-control"
+                placeholder="Logo"
+              />
 
-              <button style="width: 200px;" class="btn btn-lg btn-primary btn-block" type="submit">Upload</button>
+              <button
+                style="width: 200px;"
+                class="btn btn-lg btn-primary btn-block"
+                type="submit"
+              >Upload</button>
             </form>
-            
+
           </div>
         </div>
       </div>
