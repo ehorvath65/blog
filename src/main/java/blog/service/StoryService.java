@@ -81,7 +81,6 @@ public class StoryService {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentPrincipalName = authentication.getName();
 
-		System.out.println("szöveg: " + currentPrincipalName);
 		story.setUser(userRepo.findByFullName(currentPrincipalName));
 
 		storyRepo.save(story);
