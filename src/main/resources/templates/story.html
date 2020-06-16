@@ -12,42 +12,27 @@
 </head>
 <body>
 
-  <!-- <h3>CIM</h3> -->
-  <!-- <p>BEKEZDÉS</p> -->
-  <!-- KÉP: -->
-  <!-- <figure class="figure-img"> -->
-  <!-- <img class="img-responsive" src="./img/post-4.jpg" alt=""> -->
-  <!-- <figcaption>KÉPALÁIRÁS</figcaption> -->
-  <!-- </figure>  -->
-  <!-- <blockquote class="blockquote">IDÉZET</blockquote> -->
   <div layout:fragment="Content">
     <!-- Page Header -->
     <div class="page-header">
       <div
         class="background-img"
-        style="background-image: url('img/post-page.jpg');"
+        style="background-image: url(img/post-page.jpg);"
       ></div>
       <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <article th:if="${story} != null">
-              <ul class="page-header-breadcrumb">
-                <li><a href="/">Home</a></li>
-                <li><a
-                  th:text="${story.cat.cat}"
-                  th:href="@{${story.cat.cat}}"
-                >Kategória</a></li>
-              </ul>
-              <h1
-                th:style="'color: ' + (${story.cat.catcolor})"
-                th:text="${story.title}"
-              >Cim</h1>
-              <!--                 th:text="${story.title}">Cim</h1> -->
-            </article>
+            <ul class="page-header-breadcrumb">
+              <li><a href="/">Home</a></li>
+              <li><a
+                th:text="${story.cat.cat}"
+                th:href="@{${story.cat.cat}}"
+              >Kategória</a></li>
+            </ul>
             <h1
-              style="color: white;"
-              th:if="${story} == null"
-            >Nincs ilyen című bejegyzés!</h1>
+              th:style="'color: ' + (${story.cat.catcolor})"
+              th:text="${story.title}"
+            >Title</h1>
           </div>
         </div>
       </div>
@@ -67,11 +52,7 @@
             <article th:each="story : ${story}">
               <div class="section-row sticky-container">
                 <div class="main-post">
-                  <h3>
-                    <p th:text="${story.title}">Cim</p>
-                    <!--                     <p th:text="${story.title}">Cim</p> -->
-                  </h3>
-
+                  <h3 th:text="${story.title}">Cim</h3>
                   <p th:text="'A posztot beküldte: ' + ${story.user.fullName}">user</p>
                   <p th:utext="${story.content}">Content</p>
 
