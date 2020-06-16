@@ -63,11 +63,13 @@ public class HomeController {
 		if (storyService.getDistinctLowerCategory().contains(control)) {
 			model.addAttribute("controlAll", storyService.getStoriesByCategoryName(control));
 			return "categories";
-		} else {
+		} else if (storyService.getTitles().contains(control)) {
 			model.addAttribute("story", storyService.getSpecificStory(control));
 			System.out.println("story name=" + control);
 			System.out.println(storyService.getSpecificStory(control));
 			return "story";
+		} else {
+			return "error";
 		}
 	}
 

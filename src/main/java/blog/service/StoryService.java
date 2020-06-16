@@ -1,6 +1,7 @@
 package blog.service;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -39,6 +40,14 @@ public class StoryService {
 
 	public List<Story> getStories() {
 		return storyRepo.findAll();
+	}
+
+	public List<String> getTitles() {
+		List<String> titles = new ArrayList<>();
+		for (Story story : getStories()) {
+			titles.add(story.getTitle());
+		}
+		return titles;
 	}
 
 	public Story getStory() {
