@@ -65,6 +65,8 @@ public class HomeController {
 			return "categories";
 		} else {
 			model.addAttribute("story", storyService.getSpecificStory(control));
+			System.out.println("story name=" + control);
+			System.out.println(storyService.getSpecificStory(control));
 			return "story";
 		}
 	}
