@@ -25,7 +25,10 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h1 th:text="${control}">CAT</h1>
+            <h1
+              th:style="'color:' + ${controlAll.get(0).cat.catcolor}"
+              th:text="${controlAll.get(0).cat.catname}"
+            >CAT</h1>
           </div>
 
         </div>
