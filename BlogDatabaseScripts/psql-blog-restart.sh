@@ -43,7 +43,7 @@ CREATE TABLE users_roles (\
 user_id integer NOT NULL, \
 roles_id integer NOT NULL);
 
-CREATE TABLE story (\
+CREATE TABLE story ( \
 id integer NOT NULL, \
 user_id integer, \
 cat_id integer, \
