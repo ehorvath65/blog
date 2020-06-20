@@ -42,18 +42,18 @@ role character varying(100) NOT NULL);
 
 CREATE TABLE users_roles (\
 user_id integer NOT NULL, \
-
 roles_id integer NOT NULL);
-CREATE TABLE story (\
+
+CREATE TABLE story ( \
 id integer NOT NULL, \
 user_id integer, \
 cat_id integer, \
 category character varying(30), \
 title character varying(100) NOT NULL, \
 title_long character varying(150), \
-content text, \
 posted timestamp, \
-logo character varying(50));
+logo character varying(50), \
+content text);
 
 CREATE TABLE cat (id integer NOT NULL, cat character varying(32), \
 catname character varying(32), catcolor character varying(32));
