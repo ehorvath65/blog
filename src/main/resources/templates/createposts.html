@@ -14,7 +14,6 @@
 <body>
 
   <div layout:fragment="Content">
-
     <!-- section -->
     <div class="section">
       <!-- container -->
@@ -23,7 +22,6 @@
         <div class="row">
           <!-- Post content -->
           <div class="col-md-8">
-
             <form
               name="create_post"
               th:action="@{/create}"
@@ -31,7 +29,7 @@
               method="post"
               class="form-signin"
             >
-              <h2 class="form-signin-heading">Create content</h2>
+              <h2 class="form-signin-heading">Create post</h2>
               <input
                 style="width: 200px;"
                 type="text"
@@ -78,14 +76,19 @@
                 class="form-control"
                 placeholder="Logo"
               />
-
               <button
                 style="width: 200px;"
                 class="btn btn-lg btn-primary btn-block"
                 type="submit"
               >Upload</button>
             </form>
-
+          </div>
+          <div class="col-md-4">
+            <!-- categories -->
+            <!-- /catagories -->
+            <div th:replace="~{fragments/cats}"></div>
+            <!-- tags -->
+            <!-- /tags -->
           </div>
         </div>
       </div>

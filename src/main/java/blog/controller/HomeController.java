@@ -37,6 +37,11 @@ public class HomeController {
 		model.addAttribute("counted", storyService.getCounted());
 	}
 
+//	@RequestMapping("/login")
+//	public String login() {
+//		return "auth/login";
+//	}
+
 	@RequestMapping("/")
 	public String home4(Model model, Locale locale) {
 		extracted(model);
