@@ -12,7 +12,6 @@ DROP TABLE users_roles;
 DROP TABLE roles;
 Drop TABLE cat;
 DROP SEQUENCE story_sequence;
--- DROP SEQUENCE hibernate_sequence;
 DROP EXTENSION pgcrypto;
 
 /* több soros 
