@@ -15,10 +15,11 @@
   <div layout:fragment="Content">
     <!-- Page Header -->
     <div class="page-header">
+    <!--         <div th:text="'img/' + ${story.cat.cat} + '.jpg'">...</div> -->
       <div
         class="background-img"
-        style="background-image: url(img/post-page.jpg);"
-      ></div>
+        th:style="'background-image: url(img/' + ${story.cat.cat} + '.jpg);'">
+       </div>
       <div class="container">
         <div class="row">
           <div class="col-md-10">

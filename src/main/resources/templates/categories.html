@@ -20,14 +20,14 @@
     >
       <div
         class="background-img"
-        style="background-image: url('img/post-page.jpg');"
+        th:style="'background-image: url(img/' + ${control} + '.jpg);'"
       ></div>
       <div class="container">
         <div class="row">
-          <div class="col-md-10">
+          <div class="col-md-10" th:object="${controlAll[0].cat}">
             <h1
-              th:style="'color:' + ${controlAll.get(0).cat.catcolor}"
-              th:text="${controlAll.get(0).cat.catname}"
+              th:style="'color:' + *{catcolor}"
+              th:text="*{catname}"
             >CAT</h1>
           </div>
 
