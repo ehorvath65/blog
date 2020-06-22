@@ -24,7 +24,6 @@ public class CatService {
 		completeCats = new LinkedHashMap<>();
 		List<Cat> items = catRepo.findAll();
 		for (Cat item : items) {
-			System.out.println(item);
 			completeCats.put(item.getCat(), item);
 		}
 		return completeCats;

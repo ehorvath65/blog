@@ -11,7 +11,7 @@
   <div class="category-widget">
     <ul>
       <li th:each="cat : ${catDist}"><a
-        th:href="@{'/' + ${cat}}"
+        th:href="(${control} == ${cat}) ? @{'#'} : @{'/' + ${cat}}"
         th:classappend="${cat}"
         th:utext="${completeCats.get(cat).catname} + '<span>' + ${counted.get(cat)} + '</span>'"
       >CAT</a></li>
