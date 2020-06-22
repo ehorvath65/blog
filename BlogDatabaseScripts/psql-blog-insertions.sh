@@ -15,11 +15,11 @@ INSERT INTO "public"."users_roles" ("user_id","roles_id") VALUES ('1','1');
 
 \echo categories kitöltése
 INSERT INTO "public"."cat" ("id","cat","catname","catcolor") \
-VALUES ('1','celok','-Célok-','#ff8700');
+VALUES ('1','celok','Célok','#ff8700');
 INSERT INTO "public"."cat" ("id","cat","catname","catcolor") \
-VALUES ('2','helyzetek','-Helyzetek-','#4BB92F');
+VALUES ('2','helyzetek','Helyzetek','#4BB92F');
 INSERT INTO "public"."cat" ("id","cat","catname","catcolor") \
-VALUES ('3','mesekrol','-Mesékről-','#8d00ff');
+VALUES ('3','mesekrol','Mesékről','#8d00ff');
 
 
 tag
