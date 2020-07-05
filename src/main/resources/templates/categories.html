@@ -56,17 +56,17 @@
                     <a
                       class="post-img"
                       th:href="@{${story.title}}"
-                    ><img
-                      th:src="${story.logo}"
+                    ><img 
+                      th:src="'./img/' + ${story.title} + '.jpg'"
                       alt=""
                     /></a>
                     <div class="post-body">
                       <div class="post-meta">
                         <a
                           class="post-category"
-                          th:classappend="${control}"
-                          th:text="${completeCats.get(control).catname}"
-                        >Category</a> <span
+                          th:style="'background-color: ' + ${story.cat.catcolor}"
+                          th:text="${story.cat.catname}"
+                        >catname</a> <span
                           class="post-date"
                           th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}"
                         >2020 május 26</span>

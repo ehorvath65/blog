@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html
   lang="hu"
@@ -51,12 +52,6 @@
   th:href="@{/css/style.css}"
 />
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
 <link
   rel="shortcut icon"
   type="image/x-icon"
@@ -75,43 +70,14 @@
           <!-- logo -->
           <div class="nav-logo">
             <a
-              href="./"
+              th:href="@{${(#request.servletPath == '/') ? '#0' : './'}}"
               class="logo"
             ><img
               src="./img/home.png"
-              alt=""
+              alt="home"
             /></a>
           </div>
           <!-- /logo -->
-
-          <!-- nav -->
-          <ul class="nav-menu nav navbar-nav">
-            <li
-              th:each="catMap : ${completeCats}"
-              th:classappend="${(counted.get(catMap.key) == null)} ? 'empty' : ${catMap.key}"
-            ><a
-              th:href="${(counted.get(catMap.key) == null) || (catMap.key == control)} ? @{'#'} : @{'/' + ${catMap.key}}"
-              th:text="${catMap.value.catname}"
-            >CAT</a></li>
-          </ul>
-          <!-- New Style -->
-          <!-- colors of top menu, color of post category  -->
-          <th:block th:utext="'<style type=&quot;text/css&quot;>'">
-          </th:block>
-          <th:block th:each="completeCat : ${completeCats}">
-            <th:block th:utext="'.nav-menu li.' + ${completeCat.key} + ' a:after {background-color: ' + ${completeCat.value.catcolor} + ';}'">
-            </th:block>
-            <th:block th:utext="'.empty a' + ' {cursor: not-allowed' + ';}'">
-            </th:block>
-            <th:block th:utext="'.empty a:after' + ' {background-color: lightgrey' + ';}'">
-            </th:block>
-            <th:block th:utext="'.post-category.' + ${completeCat.key} + ' {background-color: ' + ${completeCat.value.catcolor} + ';}'">
-            </th:block>
-          </th:block>
-          <th:block th:utext="'</style type=&quot;text/css&quot;>'">
-          </th:block>
-
-          <!-- /nav -->
 
         </div>
       </div>
@@ -128,15 +94,24 @@
       <!-- row -->
       <div class="row">
         <div class="col-md-5">
+          <div class="footer-widget">
+            <div class="footer-logo">
+              <img
+                src=""
+                alt=""
+              />
+            </div>
+            <ul class="footer-nav">
+            </ul>
+          </div>
         </div>
 
         <div class="col-md-4">
           <div class="row">
             <div class="col-md-6">
               <div class="footer-widget">
-                <h3 class="footer-title">LinkedIn</h3>
                 <ul class="footer-links">
-                  <li><a href="https://www.linkedin.com/in/edit-horvath-0a79751aa/">Elérhetőség</a></li>
+                  <li><a href="https://www.linkedin.com/in/edit-horvath-0a79751aa/">Kapcsolat</a></li>
                 </ul>
               </div>
             </div>

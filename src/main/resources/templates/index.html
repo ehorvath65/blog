@@ -39,10 +39,10 @@
                       <div class="post-meta">
                         <a
                           class="post-category"
-                          th:classappend="${story.cat.cat}"
+                          th:style="'background-color: ' + ${story.cat.catcolor}"
                           th:text="${story.cat.catname}"
                           th:href="${story.cat.cat}"
-                        >Category</a> <span
+                        >catname</a> <span
                           class="post-date"
                           th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}"
                         >2020 május 26</span>

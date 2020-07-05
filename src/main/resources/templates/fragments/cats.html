@@ -6,69 +6,58 @@
 <!-- categories -->
 <div class="aside-widget">
   <div class="section-title">
-    <h3>Kategóriák</h3>
+    <h3>Témák</h3>
   </div>
   <div class="category-widget">
     <ul>
-      <li th:each="cat : ${catDist}"><a
-        th:href="(${control} == ${cat}) ? @{'#'} : @{'/' + ${cat}}"
-        th:classappend="${cat}"
-        th:utext="${completeCats.get(cat).catname} + '<span>' + ${counted.get(cat)} + '</span>'"
-      >CAT</a></li>
+      <li th:each="cat : ${catDist}"><a th:href="@{(${#request.servletPath} == '/' + ${cat}) ? '#0' : './' + ${cat}}">
+          <button
+            type="button"
+            th:classappend="${cat}"
+            th:with="kurzor=(${#request.servletPath} == '/' + ${cat}) ? none : pointer"
+            th:style="
+            'background-color:' + ${completeCats.get(cat).catcolor} 
+            + '; border-color: ' + ${completeCats.get(cat).catcolor}
+            + '; color: white'
+            + '; cursor: ' + ${kurzor}
+            "
+          >
+            <span th:text="${completeCats.get(cat).catname} + '&nbsp;'">catname</span> <span
+              class="badge badge-light"
+              th:text="${counted.get(cat)}"
+              th:style="'background-color: white; color:' +  ${completeCats.get(cat).catcolor}"
+            >count</span>
+          </button>
+      </a></li>
     </ul>
   </div>
 </div>
-<!-- /categories -->
-<!-- New Style -->
-<!-- color of categories counts, color of categories names -->
-<th:block th:utext="'<style type=&quot;text/css&quot;>'">
-</th:block>
-<th:block th:each="completeCat : ${completeCats}">
-  <th:block th:utext="'.category-widget ul li>a.' + ${completeCat.key} + '>span {background-color: ' + ${completeCat.value.catcolor} + ';}'">
-  </th:block>
-  <th:block th:utext="'.category-widget ul li>a.' + ${completeCat.key} + ':hover {color: ' + ${completeCat.value.catcolor} + ';}'">
-  </th:block>
-</th:block>
-<th:block th:utext="'</style type=&quot;text/css&quot;>'">
-</th:block>
 
 <style>
-/*=========================================================
-    Aside
-===========================================================*/
+button {
+	display: inline-block;
+    border: none;
+	padding: 6px 20px;
+    text-decoration: none;
+ 	font-size: 16px;
+	text-align: center;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
 .aside-widget {
 	margin-bottom: 40px;
+	padding-left: 20px;
+	border-left: 1px solid #eceef2;
 }
-/*----------------------------*\
-    categories
-\*----------------------------*/
+
 .category-widget ul li {
 	display: block;
 	padding-bottom: 10px;
-	border-bottom: 1px solid #eceef2;
 }
 
 .category-widget ul li+li {
 	margin-top: 10px;
-}
-
-.category-widget ul li>a {
-	display: block;
-	-webkit-transition: 0.2s color;
-	transition: 0.2s color;
-}
-
-.category-widget ul li>a>span {
-	float: right;
-	color: #fff;
-	background-color: #212631;
-	padding: 0px 5px;
-	font-weight: 600;
-	border-radius: 2px;
-}
-
-.category-widget ul li>a:hover, .category-widget ul li>a:focus {
-	text-decoration: none;
 }
 </style>
 

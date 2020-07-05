@@ -15,19 +15,20 @@
   <div layout:fragment="Content">
     <!-- Page Header -->
     <div class="page-header">
-    <!--         <div th:text="'img/' + ${story.cat.cat} + '.jpg'">...</div> -->
       <div
         class="background-img"
-        th:style="'background-image: url(img/' + ${story.cat.cat} + '.jpg);'">
-       </div>
+        th:style="'background-image: url(img/' + ${story.cat.cat} + '.jpg);'"
+      ></div>
       <div class="container">
-        <div class="row">
+        <div
+          class="row"
+          style="height: 120px"
+        >
           <div class="col-md-10">
-				<div><br /><br /><br /></div>
             <h1
-              th:style="'color: ' + (${story.cat.catcolor})"
+              th:style="'padding-top: 60px; color: ' + (${story.cat.catcolor})"
               th:text="${story.title}"
-            >Title</h1>
+            >story.title</h1>
           </div>
         </div>
       </div>
@@ -45,20 +46,12 @@
           <!-- Post content -->
           <div class="col-md-8">
             <article th:each="story : ${story}">
+
               <div class="section-row sticky-container">
                 <div class="main-post">
-                  <h3 th:text="${story.title}">Cim</h3>
-                  <p th:utext="${story.content}">Content</p>
+                  <h3 th:text="${story.title}">story.title</h3>
+                  <p th:utext="${story.content}">story.content</p>
 
-                </div>
-                <div class="post-shares sticky-shares">
-                  <a
-                    th:href="@{'https://www.facebook.com/sharer.php?u=https://onellato.hu/' + ${story.title}}"
-                    class="share-facebook"
-                  ><i class="fa fa-facebook"></i></a> <a
-                    th:href="@{'https://www.linkedin.com/shareArticle?url=https://onellato.hu/' + ${story.title}}"
-                    class="share-linkedin"
-                  ><i class="fa fa-linkedin"></i></a>
                 </div>
               </div>
 
@@ -69,22 +62,37 @@
                     <div class="media-left">
                       <img
                         class="media-object"
-                        src="./img/he.jpg"
+                        src="./img/wz.jpg"
                         alt=""
                       />
                     </div>
-                    <div class="media-body">
-                      <div class="media-heading">
-                        <h3>Horváth Edit</h3>
-                      </div>
-                      <p>LinkedIn-en keresztül küldhetsz nekem üzenetet.</p>
-                      <ul class="author-social">
-                        <li><a href="https://www.linkedin.com/in/edit-horvath-0a79751aa/"><i class="fa fa-linkedin"></i></a></li>
-
-                      </ul>
+                    <div
+                      style="margin-top: 8px; display: flex"
+                      class="post-shares sticky-shares"
+                    >
+                      <br />
+                      <p style="line-height: 35px">Megosztás:&nbsp;&nbsp;&nbsp;</p>
+                      <a
+                        th:href="@{'https://www.facebook.com/sharer.php?u=https://onellato.hu/' + ${story.title}}"
+                        class="share-facebook"
+                      ><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;&nbsp;<a
+                        th:href="@{'https://www.linkedin.com/shareArticle?url=https://onellato.hu/' + ${story.title}}"
+                        class="share-linkedin"
+                      ><i class="fa fa-linkedin"></i></a>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div class="media-body">
+                <div class="media-heading">
+                  <h3>
+                    <i>Horváth Edit</i>
+                  </h3>
+                </div>
+                <p>LinkedIn-en keresztül küldhetsz nekem üzenetet.</p>
+                <ul class="author-social">
+                  <li><a href="https://www.linkedin.com/in/edit-horvath-0a79751aa/"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
               </div>
             </article>
           </div>

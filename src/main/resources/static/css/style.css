@@ -1,34 +1,3 @@
-/* 
-Template Name: WebMag Html Template
-
-Author: yaminncco
-
-Colors:
-	Body : #3d455c
-	Headers : #212631
-	Primary : #212631 #4BB92F #ff8700 #0078ff #8d00ff
-	Dark : #212631
-	Grey : #eceef2 #a7b3c6 #fbfbfd
-
-Fonts: Nunito & Nunito-Sans
-
-Table OF Contents
-------------------------------------
-GENERAL
-NAVIGATION
-HEADER
-POST
-POST PAGE
-ASIDE
-FOOTER
-RESPONSIVE
-------------------------------------*/
-/*=========================================================
-	GENERAL
-===========================================================*/
-/*----------------------------*\
-	typography
-\*----------------------------*/
 body {
 	font-family: 'Nunito', sans-serif;
 	font-size: 16px;
@@ -147,23 +116,6 @@ textarea.input {
 	padding: 15px;
 }
 
-/* .primary-button { */
-/* 	padding: 9px 45px; */
-/* 	border: none; */
-/* 	background-color: #212631; */
-/* 	font-weight: 600; */
-/* 	text-transform: uppercase; */
-/* 	font-size: 13px; */
-/* 	color: #fff; */
-/* 	-webkit-transition: 0.2s opacity; */
-/* 	transition: 0.2s opacity; */
-/* } */
-
-/* .primary-button:hover, .primary-button:focus { */
-/* 	color: #fff; */
-/* 	opacity: 0.9; */
-/* } */
-
 .section {
 	padding-top: 40px;
 }
@@ -183,9 +135,6 @@ textarea.input {
 	font-size: 28px;
 }
 
-.section-row {
-	margin-bottom: 40px;
-}
 /*=========================================================
 	NAVIGATION
 ===========================================================*/
@@ -451,7 +400,6 @@ to {
 	text-align: center;
 	background-color: #212631;
 	color: #FFF;
-	border-radius: 2px;
 	margin-right: 5px;
 	-webkit-transition: 0.2s opacity;
 	transition: 0.2s opacity;
@@ -596,7 +544,6 @@ to {
 /* 	text-transform: uppercase; */
 	padding: 3px 10px;
 	font-weight: 600;
-	border-radius: 2px;
 	margin-right: 15px;
 	color: #FFF;
 	background-color: #212631;
@@ -631,7 +578,6 @@ to {
 	background-color: #212631;
 	padding: 3px 10px;
 	font-weight: 600;
-	border-radius: 2px;
 	-webkit-transition: 0.2s opacity;
 	transition: 0.2s opacity;
 }
@@ -722,10 +668,10 @@ to {
 /*=========================================================
 	POST PAGE
 ===========================================================*/
-.sticky-container {
-	position: relative;
-	padding-left: 80px;
-}
+/* .sticky-container { */
+/* 	position: relative; */
+/* 	padding-left: 80px; */
+/* } */
 
 .sticky-container .sticky-shares {
 	position: absolute;
@@ -807,7 +753,6 @@ to {
 	text-align: center;
 	background-color: #a7b3c6;
 	color: #FFF;
-	border-radius: 2px;
 	-webkit-transition: 0.2s opacity;
 	transition: 0.2s opacity;
 }
@@ -867,19 +812,7 @@ to {
 /*----------------------------*\
 	archive
 \*----------------------------*/
-.archive-widget ul li {
-	display: block;
-	padding-bottom: 10px;
-	border-bottom: 1px solid #eceef2;
-}
 
-.archive-widget ul li+li {
-	margin-top: 10px;
-}
-
-.archive-widget ul li>a {
-	display: block;
-}
 /*=========================================================
 	FOOTER
 ===========================================================*/
@@ -978,7 +911,6 @@ to {
 	text-align: center;
 	background-color: #a7b3c6;
 	color: #FFF;
-	border-radius: 2px;
 	-webkit-transition: 0.2s opacity;
 	transition: 0.2s opacity;
 }
@@ -1014,3 +946,4 @@ to {
 		display: none;
 	}
 }
+
