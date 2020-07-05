@@ -71,12 +71,14 @@
                           th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}"
                         >2020 május 26</span>
                       </div>
-                      <h3 class="post-title">
+                      <div class="post-title">
+                      <h2>
                         <a
                           th:text="${story.title}"
                           th:href="@{${story.title}}"
                         >Ez itt a cím</a>
-                      </h3>
+                      </h2>
+                      </div>
                       <p th:text="${story.title_long}">Alcim</p>
                     </div>
                   </div>

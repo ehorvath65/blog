@@ -31,8 +31,9 @@
                       class="post-img"
                       th:href="@{${story.title}}"
                     ><img
-                      th:src="${story.logo}"
+                      th:src="'./img/' + ${story.title} + '.jpg'"
                       alt=""
+                      width="300"
                     /></a>
                     <div class="post-body">
                       <div class="post-meta">
@@ -46,13 +47,15 @@
                           th:text="${#dates.format(story.posted, 'yyyy.MM.dd HH:mm')}"
                         >2020 május 26</span>
                       </div>
-                      <h3 class="post-title">
+                      <div class="post-title">
+                      <h2>
                         <a
                           th:text="${story.title}"
                           th:href="@{${story.title}}"
                         >Ez itt a cím</a>
-                      </h3>
+                      </h2>
                       <p th:text="${story.title_long}">Alcim</p>
+                      </div>
                     </div>
 
                   </div>
